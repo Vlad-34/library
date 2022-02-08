@@ -62,7 +62,7 @@
         // verifica daca rezultatul este in regula
         if (!$result)
         	die('Interogare gresita :'.mysqli_error($dsn));
-        // se obţine numarul tuplelor returnate
+        // se obtine numarul tuplelor returnate
         $num_results = mysqli_num_rows($result);
 		if($num_results != 0)
 		{
