@@ -49,7 +49,7 @@
             // verifica daca rezultatul este in regula
             if (!$result)
 				die('Interogare gresita :'.mysqli_error($dsn));
-            // se obţine numarul tuplelor returnate
+            // se obtine numarul tuplelor returnate
             $num_results = mysqli_num_rows($result);
             // se afiseaza fiecare tupla returnata
 			echo '<table style = "width:100%; background-color: #F8F8FF;">
@@ -75,7 +75,7 @@
 			echo '</table>';
             // deconectarea de la BD
             mysqli_close($dsn);
-            ?>
+        ?>
 		<a href="index.html" style="cursor:default;">
 		<img src="back.png" style="width:75px; height:75px; margin-top:0.5%;"></a>
     </body>
