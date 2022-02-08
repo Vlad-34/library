@@ -1,69 +1,64 @@
 <html>
-<style>
-	body
-	{
-		background-image:url("wallpaper.jpg");
-		background-repeat:no-repeat;
-		background-attachment:fixed;
-		background-size:cover;
-	}
-	
-	h1
-	{
-		color:#FF5722;
-		text-align:center;
-		font-size:30px;
-		font-family:Verdana;
-	}
-	
-	th
-	{
-		color: #FF5722;
-	}
-	
-	table, td
-	{
-		border: 2px solid black;
-	}
-</style>
+	<style>
+		body
+		{
+			background-image:url("wallpaper.jpg");
+			background-repeat:no-repeat;
+			background-attachment:fixed;
+			background-size:cover;
+		}
+		
+		h1
+		{
+			color:#FF5722;
+			text-align:center;
+			font-size:30px;
+			font-family:Verdana;
+		}
+		
+		th
+		{
+			color: #FF5722;
+		}
+		
+		table, td
+		{
+			border: 2px solid black;
+		}
+	</style>
 	
     <head>
         <title>Exercitiu 3.b)</title>
     </head>
     <body>
-        <h1>3.b) Sa se gasească detaliile împrumuturilor cu restituire întarziata in ordinea descrescatoare dupa nr_zile si crescator dupa datai.</h1>
+        <h1>3.b) Sa se gaseasca detaliile imprumuturilor cu restituire intarziata in ordinea descrescatoare dupa nr_zile si crescator dupa datai.</h1>
         <?php
-            // se precizează că se foloseşte PEAR DB
+            // se precizeaza ca se foloseste PEAR DB
             require_once('PEAR.php');
 			$host = 'localhost';
             $user = 'UrsacheVlad';
 			$pass = file_get_contents("C:/xampp/htdocs/pass.txt");
             $db_name = 'final';
-            // se stabileşte şirul pentru conexiune universală sau DSN
+            // se stabileste sirul pentru conexiune universala sau DSN
 			$dsn= new mysqli($host, $user, $pass, $db_name);
-            // conectare la BD
             if ($dsn->connect_error)
-			{
 				die('Eroare la conectare:'. $dsn->connect_error);
-			}
             // se emite interogarea
             $query = 'CALL Ex3b()';
             $result = mysqli_query($dsn, $query);
-            // verifică dacă rezultatul este în regulă
+            // verifica daca rezultatul este in regula
             if (!$result)
-            {
 				die('Interogare gresita :'.mysqli_error($dsn));
-            }
-            // se obţine numărul tuplelor returnate
+            // se obţine numarul tuplelor returnate
             $num_results = mysqli_num_rows($result);
-            // se afişează fiecare tuplă returnată
+            // se afiseaza fiecare tupla returnata
 			echo '<table style = "width:100%; background-color: #F8F8FF;">
 			<tr>
-			 <th>ID_CARTE</th>
-			 <th>ID_IMPRUMUT</th>
-			 <th>DATA_IMPRUMUT</th>
-			 <th>DATA_RESTITUIRII</th>
-			 <th>NR_ZILE</th>
+				<th>ID_CARTE</th>
+				<th>ID_IMPRUMUT</th>
+				<th>DATA_IMPRUMUT</th>
+				<th>DATA_RESTITUIRII</th>
+				<th>NR_ZILE</th>
 			</tr>';
 			for ($i=0; $i <$num_results; $i++)
 			{
