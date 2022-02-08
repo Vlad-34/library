@@ -67,10 +67,10 @@
 		{
 			echo '<table style = "width:100%; background-color: #F8F8FF;">
 			<tr>
-			<th>ID</th>
-			<th>NUME</th>
-			<th>TELEFON</th>
-			<th>ADRESA</th>
+				<th>ID</th>
+				<th>NUME</th>
+				<th>TELEFON</th>
+				<th>ADRESA</th>
 			</tr>';
 			// se afiseaza fiecare tupla returnata
 			for ($i=0; $i <$num_results; $i++)
