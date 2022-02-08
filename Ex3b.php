@@ -27,31 +27,31 @@
 		}
 	</style>
 	
-    <head>
-        <title>Exercitiu 3.b)</title>
-    </head>
-    <body>
-        <h1>3.b) Sa se gaseasca detaliile imprumuturilor cu restituire intarziata in ordinea descrescatoare dupa nr_zile si crescator dupa datai.</h1>
-        <?php
-            // se precizeaza ca se foloseste PEAR DB
-            require_once('PEAR.php');
+	<head>
+		<title>Exercitiu 3.b)</title>
+	</head>
+	<body>
+		<h1>3.b) Sa se gaseasca detaliile imprumuturilor cu restituire intarziata in ordinea descrescatoare dupa nr_zile si crescator dupa datai.</h1>
+		<?php
+			// se precizeaza ca se foloseste PEAR DB
+			require_once('PEAR.php');
 			$host = 'localhost';
-            $user = 'UrsacheVlad';
+			$user = 'UrsacheVlad';
 			$pass = file_get_contents("C:/xampp/htdocs/pass.txt");
-            $db_name = 'final';
-            // se stabileste sirul pentru conexiune universala sau DSN
+			$db_name = 'final';
+			// se stabileste sirul pentru conexiune universala sau DSN
 			$dsn= new mysqli($host, $user, $pass, $db_name);
-            if ($dsn->connect_error)
+			if ($dsn->connect_error)
 				die('Eroare la conectare:'. $dsn->connect_error);
-            // se emite interogarea
-            $query = 'CALL Ex3b()';
-            $result = mysqli_query($dsn, $query);
-            // verifica daca rezultatul este in regula
-            if (!$result)
+			// se emite interogarea
+			$query = 'CALL Ex3b()';
+			$result = mysqli_query($dsn, $query);
+			// verifica daca rezultatul este in regula
+			if (!$result)
 				die('Interogare gresita :'.mysqli_error($dsn));
-            // se obtine numarul tuplelor returnate
-            $num_results = mysqli_num_rows($result);
-            // se afiseaza fiecare tupla returnata
+			// se obtine numarul tuplelor returnate
+			$num_results = mysqli_num_rows($result);
+			// se afiseaza fiecare tupla returnata
 			echo '<table style = "width:100%; background-color: #F8F8FF;">
 			<tr>
 				<th>ID_CARTE</th>
@@ -73,10 +73,10 @@
 				echo '<td>'.stripslashes($row['nr_zile']).'</td>';
 			}
 			echo '</table>';
-            // deconectarea de la BD
-            mysqli_close($dsn);
-        ?>
+			// deconectarea de la BD
+			mysqli_close($dsn);
+		?>
 		<a href="index.html" style="cursor:default;">
 		<img src="back.png" style="width:75px; height:75px; margin-top:0.5%;"></a>
-    </body>
+	</body>
 </html>
