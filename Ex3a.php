@@ -45,13 +45,13 @@
 		if (!get_magic_quotes_gpc())
 			$criteriu = addslashes($criteriu);
 		
-        // se precizeaza ca se foloseşte PEAR DB
+        // se precizeaza ca se foloseste PEAR DB
         require_once('PEAR.php');
 		$host = 'localhost';
         $user = 'UrsacheVlad';
 		$pass = file_get_contents("C:/xampp/htdocs/pass.txt");
         $db_name = 'final';
-        // se stabileşte şirul pentru conexiune universala sau DSN
+        // se stabileste sirul pentru conexiune universala sau DSN
 		$dsn= new mysqli($host, $user, $pass, $db_name);
         if ($dsn->connect_error)
 			die('Eroare la conectare:'. $dsn->connect_error);
@@ -73,7 +73,7 @@
 			<th>TELEFON</th>
 			<th>ADRESA</th>
 			</tr>';
-			// se afişeaza fiecare tupla returnata
+			// se afiseaza fiecare tupla returnata
 			for ($i=0; $i <$num_results; $i++)
 			{
 				$row = mysqli_fetch_assoc($result);
